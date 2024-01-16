@@ -1,20 +1,24 @@
 <?php
 
 
-class DV_Soon {
-    private $option = [];
+class DV_Soon extends DV_Soon_Base {
+
     private $type_include = 'include';
     private $type_exclude = 'exclude';
     private $current_type = 'include';
 
     public function __construct($args = null) {
-        $this->option = $args;
+        parent::__construct($args);
+        new DV_Soon_Admin($args);
         $o = $this->_o($args);
         $this->current_type  =  $o('type', $this->type_include);
         $this->actionHandler();
     }
 
     public function actionHandler() {
+        if (is_admin()) {
+            return;
+        }
         $o = $this->_o($this->option);
         $fnPrice = function ($price, $product) {
             return $this->replacePrice($price, $product, $this->conditionHandler($product));
@@ -72,26 +76,5 @@ class DV_Soon {
         }
 
         return $purchasable;
-    }
-
-    function _o($arr) {
-        return function ($selector, $default) use ($arr) {
-            $ex = explode(".", $selector);
-            $re = array_reduce($ex, function ($acc, $i) {
-                try {
-                    $val = json_encode($acc);
-                    $acc = json_decode($val, true);
-                    $acc = $acc[$i];
-                } catch (\Throwable $th) {
-                    $acc = null;
-                }
-                return $acc;
-            }, $arr);
-            if ($re == null) {
-                return $default;
-            } else {
-                return $re;
-            }
-        };
     }
 }

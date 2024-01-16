@@ -14,16 +14,15 @@ define('DV_SOON_DIR', dirname(__FILE__) . '/');
 define('DV_SOON_URL', plugin_dir_url(__FILE__));
 
 
+require DV_SOON_DIR . "base-class.php";
 require DV_SOON_DIR . "soon-class.php";
 require DV_SOON_DIR . "admin-class.php";
 
 
 add_action('init', function () {
-    if (!is_admin()) {
-        new DV_Soon([
-            'type' => 'include', // include -  exclude
-            'product_ids' => [5830],
-            'message' => 'به‌زودی'
-        ]);
-    }
+    new DV_Soon([
+        'type' => 'include', // include -  exclude
+        'product_ids' => [5830],
+        'message' => 'به‌زودی'
+    ]);
 });
