@@ -4,14 +4,10 @@
 class DV_Soon extends DV_Soon_Base {
 
     private $type_include = 'include';
-    private $type_exclude = 'exclude';
-    private $current_type = 'include';
 
     public function __construct($args = null) {
         parent::__construct($args);
         new DV_Soon_Admin($args);
-        $o = $this->_o($args);
-        $this->current_type  =  $o('type', $this->type_include);
         $this->actionHandler();
     }
 
@@ -24,36 +20,18 @@ class DV_Soon extends DV_Soon_Base {
             'type' => get_option('dv_soon_include', ''),
             'message' => get_option('dv_soon_message', '')
         ];
-
-        $fnPrice = function ($price, $product) {
-            return $this->replacePrice($price, $product, $this->conditionHandler($product));
+        $o = $this->_o($this->option);
+        $fnPrice = function ($price, $product) use ($o) {
+            return $this->replacePrice($price, $product, $this->conditionHandler($product), $o);
         };
         $fnHide = function ($purchasable, $product) {
             return $this->hideCart($purchasable, $product, $this->conditionHandler($product));
         };
 
-        add_action('wp_head', function () {
-            global $post;
-
-            // Check if the current post is a product
-            if (is_product()) {
-                $product = wc_get_product($post->ID);
-
-                if (is_a($product, 'WC_Product')) {
-                    $condition = $this->conditionHandler($product);
-
-                    if ($condition) {
-                        echo "<style>
-                            .variations_form,
-                            .woocommerce-variation-add-to-cart { display: none!important; }
-                        </style>";
-                    }
-                }
-            }
-        });
         add_filter('woocommerce_product_get_price', $fnPrice, 100000, 2);
         add_filter('woocommerce_get_price_html', $fnPrice, 100000, 2);
         add_filter('woocommerce_is_purchasable', $fnHide, 100000, 2);
+        add_action('wp_head', [$this, 'hideVariation']);
     }
 
     public function conditionHandler($product) {
@@ -82,15 +60,15 @@ class DV_Soon extends DV_Soon_Base {
         $condition = !$is_include ? $is_exist : !$is_exist;
 
         /**
-         * False means show message instead of price
+         * True means show message instead of price
          */
         return $condition;
     }
 
-    public function replacePrice($price, $product, $condition) {
+    public function replacePrice($price, $product, $condition, $o) {
         if ($condition) {
             remove_action('woocommerce_after_single_product', 'woocommerce_template_single_add_to_cart', 30);
-            return "به‌زودی";
+            return $o('message', 'Soon');
         }
         return $price;
     }
@@ -99,7 +77,21 @@ class DV_Soon extends DV_Soon_Base {
         if ($condition) {
             return false;
         }
-
         return $purchasable;
+    }
+
+    public function hideVariation() {
+        if (is_product()) {
+            $product = wc_get_product(get_the_ID());
+            if (is_a($product, 'WC_Product')) {
+                $condition = $this->conditionHandler($product);
+                if ($condition) {
+                    echo "<style>
+                        .variations_form,
+                        .woocommerce-variation-add-to-cart { display: none!important; }
+                        </style>";
+                }
+            }
+        }
     }
 }
