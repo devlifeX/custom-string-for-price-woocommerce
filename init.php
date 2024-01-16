@@ -4,7 +4,7 @@
 Plugin Name: Soon instead of price
 Plugin URI: https://github.com/devlifeX/custom-string-for-price-woocommerce
 Description: Allows you to show a word instead of price, Also support for variable products
-Version: 1.0.6
+Version: 1.0.7
 Author: Dariush vesal
 Author URI: https://vesal.blog
 */
