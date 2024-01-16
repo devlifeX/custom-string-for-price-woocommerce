@@ -1,3 +1,12 @@
+=== Plugin Name ===
+Contributors: Custom String for Price
+
+Tags: woocommerce, price
+Requires at least: 4.7
+Tested up to: 6.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 # Custom String for Price - WooCommerce
 
 Custom String for Price is a WordPress plugin designed to allow you to replace product prices with a custom string for specific products in your WooCommerce store.
