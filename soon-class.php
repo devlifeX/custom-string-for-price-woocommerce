@@ -31,6 +31,19 @@ class DV_Soon extends DV_Soon_Base {
         $fnHide = function ($purchasable, $product) {
             return $this->hideCart($purchasable, $product, $this->conditionHandler($product));
         };
+
+        add_action('wp_head', function () {
+            global $product;
+            if (is_a($product, 'WC_Product')) {
+                $condition =   $this->conditionHandler($product);
+                if ($condition) {
+                    echo "<style>
+                    .variations_form,
+                  .woocommerce-variation-add-to-cart{display:none!important};
+                  <style>";
+                }
+            }
+        });
         add_filter('woocommerce_product_get_price', $fnPrice, 100000, 2);
         add_filter('woocommerce_get_price_html', $fnPrice, 100000, 2);
         add_filter('woocommerce_is_purchasable', $fnHide, 100000, 2);
