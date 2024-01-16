@@ -4,7 +4,7 @@
 Plugin Name: Soon instead of price
 Plugin URI: https://vesal.blog
 Description: Allows you to show a word instead of price, Also support for variable products
-Version: 1.0.2
+Version: 1.0.3
 Author: Dariush vesal
 Author URI: https://vesal.blog
 */

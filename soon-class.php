@@ -33,14 +33,21 @@ class DV_Soon extends DV_Soon_Base {
         };
 
         add_action('wp_head', function () {
-            global $product;
-            if (is_a($product, 'WC_Product')) {
-                $condition = $this->conditionHandler($product);
-                if ($condition) {
-                    echo "<style>
-                    .variations_form,
-                  .woocommerce-variation-add-to-cart{display:none!important};
-                  </style>";
+            global $post;
+
+            // Check if the current post is a product
+            if (is_product()) {
+                $product = wc_get_product($post->ID);
+
+                if (is_a($product, 'WC_Product')) {
+                    $condition = $this->conditionHandler($product);
+
+                    if ($condition) {
+                        echo "<style>
+                            .variations_form,
+                            .woocommerce-variation-add-to-cart { display: none!important; }
+                        </style>";
+                    }
                 }
             }
         });
