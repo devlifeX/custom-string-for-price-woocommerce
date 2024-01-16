@@ -37,7 +37,7 @@ Contributions are welcome! Feel free to open a pull request or suggest improveme
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
@@ -46,4 +46,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Changelog
 
 See the [CHANGELOG](CHANGELOG.md) file for details on changes and versions.
-
