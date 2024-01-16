@@ -28,6 +28,9 @@ class DV_Soon extends DV_Soon_Base {
             return $this->hideCart($purchasable, $product, $this->conditionHandler($product));
         };
 
+
+        add_filter('woocommerce_product_get_regular_price', $fnPrice, 100000, 2);
+        add_filter('woocommerce_product_get_sale_price', $fnPrice, 100000, 2);
         add_filter('woocommerce_product_get_price', $fnPrice, 100000, 2);
         add_filter('woocommerce_get_price_html', $fnPrice, 100000, 2);
         add_filter('woocommerce_is_purchasable', $fnHide, 100000, 2);
@@ -68,6 +71,7 @@ class DV_Soon extends DV_Soon_Base {
     public function replacePrice($price, $product, $condition, $o) {
         if ($condition) {
             remove_action('woocommerce_after_single_product', 'woocommerce_template_single_add_to_cart', 30);
+            wc_price(0);
             return $o('message', 'Soon');
         }
         return $price;
