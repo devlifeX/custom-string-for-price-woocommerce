@@ -22,7 +22,7 @@ require DV_SOON_DIR . "admin-class.php";
 add_action('init', function () {
     new DV_Soon([
         'type' => 'include', // include -  exclude
-        'product_ids' => [5830],
+        'product_ids' => [],
         'message' => 'به‌زودی'
     ]);
 });
