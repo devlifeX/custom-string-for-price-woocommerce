@@ -19,7 +19,12 @@ class DV_Soon extends DV_Soon_Base {
         if (is_admin()) {
             return;
         }
-        $o = $this->_o($this->option);
+        $this->option = [
+            'product_ids' => get_option('dv_soon_autocomplete_result', ''),
+            'type' => get_option('dv_soon_include', ''),
+            'message' => get_option('dv_soon_message', '')
+        ];
+
         $fnPrice = function ($price, $product) {
             return $this->replacePrice($price, $product, $this->conditionHandler($product));
         };

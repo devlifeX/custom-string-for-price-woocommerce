@@ -38,7 +38,7 @@ function my_text_field_callback() {
 ?>
 <div class="wrap">
     <h2>Custom String for tag price - Settings</h2>
-    <form method="post" action="options.php">
+    <form method="post" action="options.php" id="dv-soon">
         <?php settings_fields('dv_soon_group'); ?>
         <?php do_settings_sections('dv-soon'); ?>
 
@@ -51,6 +51,8 @@ function my_text_field_callback() {
             }
         }
         ?>
+
+        <h2>Products</h2>
         <select id="product-search" name="product-search[]" multiple="multiple" style="width: 100%;">
             <?php
             foreach ($product_titles as $key => $title) {
@@ -58,34 +60,8 @@ function my_text_field_callback() {
             }
             ?>
         </select>
+        <input type="hidden" name="products" id="products">
+
         <?php submit_button(); ?>
     </form>
 </div>
-
-
-<script>
-    jQuery(document).ready(function($) {
-        $('#product-search').select2({
-            ajax: {
-                url: admin_autocomplete_params.ajax_url,
-                dataType: 'json',
-                delay: 250,
-                data: function(params) {
-                    return {
-                        action: 'admin_autocomplete_search',
-                        nonce: admin_autocomplete_params.nonce,
-                        term: params.term
-                    };
-                },
-                processResults: function(data) {
-                    return {
-                        results: data
-                    };
-                },
-                cache: true
-            },
-            minimumInputLength: 2,
-            multiple: true
-        });
-    });
-</script>

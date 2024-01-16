@@ -19,8 +19,16 @@ class DV_Soon_Admin extends DV_Soon_Base {
 
     function save_settings() {
         if (isset($_POST['submit'])) {
-            if (isset($_POST['product-search']) && !empty($_POST['product-search'])) {
-                update_option('dv_soon_autocomplete_result', $_POST['product-search']);
+
+
+            if (isset($_POST['product-search'])) {
+                if (empty($_POST['product-search'])) {
+                    update_option('dv_soon_autocomplete_result', []);
+                } else {
+                    update_option('dv_soon_autocomplete_result', $_POST['product-search']);
+                }
+            } else {
+                update_option('dv_soon_autocomplete_result', []);
             }
         }
     }
@@ -61,7 +69,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
             wp_enqueue_style('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css');
 
             // Enqueue your script
-            wp_enqueue_script('admin-autocomplete-script', plugin_dir_url(__FILE__) . 'js/admin-autocomplete.js', array('select2'), null, true);
+            wp_enqueue_script('admin-autocomplete-script', plugin_dir_url(__FILE__) . 'assets/js/admin-autocomplete.js', array('select2'), null, true);
 
             // Localize script with nonce and URL parameters
             wp_localize_script('admin-autocomplete-script', 'admin_autocomplete_params', array(
@@ -86,6 +94,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
     }
 
     function register_my_custom_settings() {
+        register_setting('dv_soon_group', 'dv_soon_include', [$this, 'sanitize_callback']);
         register_setting('dv_soon_group', 'dv_soon_message', [$this, 'sanitize_callback']);
         add_settings_section('my_radio_section', 'Radio Group Section', [$this, 'my_radio_section_callback'], 'dv-soon');
         add_settings_field('my_radio_field', 'Select an option:', [$this, 'my_radio_field_callback'], 'dv-soon', 'my_radio_section');
@@ -106,6 +115,9 @@ class DV_Soon_Admin extends DV_Soon_Base {
     // Callback for the radio group field
     function my_radio_field_callback() {
         $value = esc_attr(get_option('dv_soon_include', ''));
+
+        // print_r($value);
+        // exit();
 
         echo '<label><input type="radio" name="dv_soon_include" value="include" ' . checked('include', empty($value) ? 'include' : $value, false) . '> Include</label>';
         echo '<br>';
