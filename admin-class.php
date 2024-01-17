@@ -91,7 +91,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
     function register_my_custom_settings() {
         register_setting('dv_soon_group', 'dv_soon_include', [$this, 'sanitize_callback']);
         register_setting('dv_soon_group', 'dv_soon_message', [$this, 'sanitize_callback']);
-        add_settings_section('my_radio_section', __('Radio Group Section', 'dv_custom_string'), [$this, 'my_radio_section_callback'], 'dv-soon');
+        add_settings_section('my_radio_section', __('Condition', 'dv_custom_string'), [$this, 'my_radio_section_callback'], 'dv-soon');
         add_settings_field('my_radio_field', __('Select an option:', 'dv_custom_string'), [$this, 'my_radio_field_callback'], 'dv-soon', 'my_radio_section');
         add_settings_section('my_text_section', __('Message Section', 'dv_custom_string'), [$this, 'my_text_section_callback'], 'dv-soon');
         add_settings_field('dv_soon_message', __('Enter a message:', 'dv_custom_string'), [$this, 'my_text_field_callback'], 'dv-soon', 'my_text_section');
@@ -103,7 +103,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
 
     // Callback for the radio group section
     function my_radio_section_callback() {
-        echo '<p>' . __('Choose either "Include" or "Exclude".', 'dv_custom_string') . '</p>';
+        echo '<p>' . __('Choose either \'Include\' or \'Exclude\'. \'Include\' means that the selected products will have the changes applied, while \'Exclude\' means the changes will not be applied to those products.', 'dv_custom_string') . '</p>';
     }
 
     // Callback for the radio group field
@@ -116,7 +116,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
 
     // Callback for the text field section
     function my_text_section_callback() {
-        echo '<p>' . __('Enter a custom message.', 'dv_custom_string') . '</p>';
+        echo '<p>' . __('Enter a custom message that you want to show instead of the price.', 'dv_custom_string') . '</p>';
     }
 
     // Callback for the text field
