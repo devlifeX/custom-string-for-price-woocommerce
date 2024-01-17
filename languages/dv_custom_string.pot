@@ -1,0 +1,87 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom String instead of price\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-17 23:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.2\n"
+"X-Domain: dv_custom_string"
+
+#. Description of the plugin
+msgid ""
+"Allows you to show a String instead of price, Also support for variable "
+"products"
+msgstr ""
+
+#: admin-class.php:106
+msgid ""
+"Choose either 'Include' or 'Exclude'. 'Include' means that the selected "
+"products will have the changes applied, while 'Exclude' means the changes "
+"will not be applied to those products."
+msgstr ""
+
+#: view/admin.php:18
+msgid "Choose products to which you want to apply changes."
+msgstr ""
+
+#: admin-class.php:94
+msgid "Condition"
+msgstr ""
+
+#. Name of the plugin
+#: admin-class.php:80 admin-class.php:81 view/admin.php:2
+msgid "Custom String instead of price"
+msgstr ""
+
+#. Author of the plugin
+msgid "Dariush vesal"
+msgstr ""
+
+#: admin-class.php:119
+msgid "Enter a custom message that you want to show instead of the price."
+msgstr ""
+
+#: admin-class.php:97
+msgid "Enter a message:"
+msgstr ""
+
+#: admin-class.php:114
+msgid "Exclude"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/devlifeX/custom-string-for-price-woocommerce"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://vesal.blog"
+msgstr ""
+
+#: admin-class.php:112
+msgid "Include"
+msgstr ""
+
+#: admin-class.php:96
+msgid "Message Section"
+msgstr ""
+
+#: view/admin.php:17
+msgid "Products"
+msgstr ""
+
+#: admin-class.php:95
+msgid "Select an option:"
+msgstr ""
+
+#: admin-class.php:126 init.php:32
+msgid "Soon"
+msgstr ""

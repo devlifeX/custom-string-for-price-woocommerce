@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom String instead of price\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-17 23:06+0000\n"
+"PO-Revision-Date: 2024-01-17 23:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.2\n"
+"X-Domain: dv_custom_string"
+
+#. Description of the plugin
+msgid ""
+"Allows you to show a String instead of price, Also support for variable "
+"products"
+msgstr ""
+"به شما امکان می دهد یک متن دلخواه را به جای قیمت نشان دهید، همچنین از "
+"محصولات متغیر پشتیبانی می کند. (مثال: برای نمایش به‌زودی روی برخی محصولات)\n"
+
+#: admin-class.php:106
+msgid ""
+"Choose either 'Include' or 'Exclude'. 'Include' means that the selected "
+"products will have the changes applied, while 'Exclude' means the changes "
+"will not be applied to those products."
+msgstr ""
+"\"شامل\" یا \"مستثنی\" را انتخاب کنید. 'شامل' به این معنی است که متن برای "
+"محصولات انتخابی اعمال می شود، در حالی که 'مستثنی' به این معنی است که تغییرات "
+"روی همه محصولات به‌غیر از محصولات انتخابی  اعمال می‌شود.\n"
+
+#: view/admin.php:18
+msgid "Choose products to which you want to apply changes."
+msgstr "محصولاتی که نیاز دارید را انتخاب کنید"
+
+#: admin-class.php:94
+msgid "Condition"
+msgstr "شرط نمایش"
+
+#. Name of the plugin
+#: admin-class.php:80 admin-class.php:81 view/admin.php:2
+msgid "Custom String instead of price"
+msgstr "متن دلخواه بجای قیمت"
+
+#. Author of the plugin
+msgid "Dariush vesal"
+msgstr "داریوش وصال"
+
+#: admin-class.php:119
+msgid "Enter a custom message that you want to show instead of the price."
+msgstr "پیامی که مایل هستید بجای قیمت نشان داده شود را وارد کنید."
+
+#: admin-class.php:97
+msgid "Enter a message:"
+msgstr "یک پیام وارد کنید:"
+
+#: admin-class.php:114
+msgid "Exclude"
+msgstr "مستثنی"
+
+#. URI of the plugin
+msgid "https://github.com/devlifeX/custom-string-for-price-woocommerce"
+msgstr "https://github.com/devlifeX/custom-string-for-price-woocommerce"
+
+#. Author URI of the plugin
+msgid "https://vesal.blog"
+msgstr "https://vesal.blog"
+
+#: admin-class.php:112
+msgid "Include"
+msgstr "شامل"
+
+#: admin-class.php:96
+msgid "Message Section"
+msgstr "بخش پیام"
+
+#: view/admin.php:17
+msgid "Products"
+msgstr "محصولات"
+
+#: admin-class.php:95
+msgid "Select an option:"
+msgstr "یک گزینه را انتخاب کنید."
+
+#: admin-class.php:126 init.php:32
+msgid "Soon"
+msgstr "به‌زودی"
