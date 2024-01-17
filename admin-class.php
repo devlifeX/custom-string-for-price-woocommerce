@@ -18,9 +18,7 @@ class DV_Soon_Admin extends DV_Soon_Base {
     }
 
     function save_settings() {
-        if (isset($_POST['submit'])) {
-
-
+        if (isset($_POST['dv_soon_form_submit'])) {
             if (isset($_POST['product-search'])) {
                 if (empty($_POST['product-search'])) {
                     update_option('dv_soon_autocomplete_result', []);

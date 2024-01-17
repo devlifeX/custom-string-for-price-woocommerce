@@ -62,6 +62,6 @@ function my_text_field_callback() {
         </select>
         <input type="hidden" name="products" id="products">
 
-        <?php submit_button(); ?>
+        <?php submit_button(null, 'primary', 'dv_soon_form_submit'); ?>
     </form>
 </div>
