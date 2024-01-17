@@ -1,12 +1,13 @@
 <?php
 
 /*
-Plugin Name: Soon instead of price
+Plugin Name: Custom String instead of price
 Plugin URI: https://github.com/devlifeX/custom-string-for-price-woocommerce
-Description: Allows you to show a word instead of price, Also support for variable products
+Description: Allows you to show a String instead of price, Also support for variable products
 Version: 1.1.0
 Author: Dariush vesal
 Author URI: https://vesal.blog
+Text Domain: dv_custom_string
 */
 
 
@@ -19,10 +20,15 @@ require DV_SOON_DIR . "soon-class.php";
 require DV_SOON_DIR . "admin-class.php";
 
 
+function dv_soon_load_plugin_textdomain() {
+    load_plugin_textdomain('dv_custom_string', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+}
+add_action('plugins_loaded', 'dv_soon_load_plugin_textdomain');
+
 add_action('init', function () {
     new DV_Soon([
         'type' => 'include', // include -  exclude
         'product_ids' => [],
-        'message' => 'به‌زودی'
+        'message' => __('Soon', 'dv_custom_string')
     ]);
 });
