@@ -18,7 +18,10 @@ require DV_SOON_DIR . "soon-class.php";
 require DV_SOON_DIR . "admin-class.php";
 
 add_action('plugins_loaded', function () {
-    load_plugin_textdomain('dv-custom-string', false, DV_SOON_DIR . 'languages');
+
+    print_r(DV_SOON_DIR . 'languages/');
+    exit();
+    load_plugin_textdomain('dv-custom-string', false, DV_SOON_DIR . 'languages/');
 });
 
 if (class_exists('DV_Soon')) {
