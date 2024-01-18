@@ -77,8 +77,8 @@ class DV_Soon_Admin extends DV_Soon_Base {
     function my_custom_menu() {
         add_submenu_page(
             'woocommerce',
-            __('Custom String instead of price', 'dv_custom_string'),
-            __('Custom String instead of price', 'dv_custom_string'),
+            __('Custom String instead of price', 'dv-custom-string'),
+            __('Custom String instead of price', 'dv-custom-string'),
             'manage_options',
             'dv-soon',
             function () {
@@ -91,10 +91,10 @@ class DV_Soon_Admin extends DV_Soon_Base {
     function register_my_custom_settings() {
         register_setting('dv_soon_group', 'dv_soon_include', [$this, 'sanitize_callback']);
         register_setting('dv_soon_group', 'dv_soon_message', [$this, 'sanitize_callback']);
-        add_settings_section('my_radio_section', __('Condition', 'dv_custom_string'), [$this, 'my_radio_section_callback'], 'dv-soon');
-        add_settings_field('my_radio_field', __('Select an option:', 'dv_custom_string'), [$this, 'my_radio_field_callback'], 'dv-soon', 'my_radio_section');
-        add_settings_section('my_text_section', __('Message Section', 'dv_custom_string'), [$this, 'my_text_section_callback'], 'dv-soon');
-        add_settings_field('dv_soon_message', __('Enter a message:', 'dv_custom_string'), [$this, 'my_text_field_callback'], 'dv-soon', 'my_text_section');
+        add_settings_section('my_radio_section', __('Condition', 'dv-custom-string'), [$this, 'my_radio_section_callback'], 'dv-soon');
+        add_settings_field('my_radio_field', __('Select an option:', 'dv-custom-string'), [$this, 'my_radio_field_callback'], 'dv-soon', 'my_radio_section');
+        add_settings_section('my_text_section', __('Message Section', 'dv-custom-string'), [$this, 'my_text_section_callback'], 'dv-soon');
+        add_settings_field('dv_soon_message', __('Enter a message:', 'dv-custom-string'), [$this, 'my_text_field_callback'], 'dv-soon', 'my_text_section');
     }
 
     function sanitize_callback($input) {
@@ -103,27 +103,27 @@ class DV_Soon_Admin extends DV_Soon_Base {
 
     // Callback for the radio group section
     function my_radio_section_callback() {
-        echo '<p>' . __('Choose either \'Include\' or \'Exclude\'. \'Include\' means that the selected products will have the changes applied, while \'Exclude\' means the changes will not be applied to those products.', 'dv_custom_string') . '</p>';
+        echo '<p>' . __('Choose either \'Include\' or \'Exclude\'. \'Include\' means that the selected products will have the changes applied, while \'Exclude\' means the changes will not be applied to those products.', 'dv-custom-string') . '</p>';
     }
 
     // Callback for the radio group field
     function my_radio_field_callback() {
         $value = esc_attr(get_option('dv_soon_include', ''));
-        echo '<label><input type="radio" name="dv_soon_include" value="include" ' . checked('include', empty($value) ? 'include' : $value, false) . '> ' . __('Include', 'dv_custom_string') . '</label>';
+        echo '<label><input type="radio" name="dv_soon_include" value="include" ' . checked('include', empty($value) ? 'include' : $value, false) . '> ' . __('Include', 'dv-custom-string') . '</label>';
         echo '<br>';
-        echo '<label><input type="radio" name="dv_soon_include" value="exclude" ' . checked('exclude', $value, false) . '> ' . __('Exclude', 'dv_custom_string') . '</label>';
+        echo '<label><input type="radio" name="dv_soon_include" value="exclude" ' . checked('exclude', $value, false) . '> ' . __('Exclude', 'dv-custom-string') . '</label>';
     }
 
     // Callback for the text field section
     function my_text_section_callback() {
-        echo '<p>' . __('Enter a custom message that you want to show instead of the price.', 'dv_custom_string') . '</p>';
+        echo '<p>' . __('Enter a custom message that you want to show instead of the price.', 'dv-custom-string') . '</p>';
     }
 
     // Callback for the text field
     function my_text_field_callback() {
         $value = esc_attr(get_option('dv_soon_message', ''));
         if (empty($value)) {
-            $value = __('Soon', 'dv_custom_string');
+            $value = __('Soon', 'dv-custom-string');
         }
         echo '<input type="text" name="dv_soon_message" value="' . $value . '" placeholder="Enter your message">';
     }

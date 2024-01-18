@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h2><?php _e('Custom String instead of price', 'dv_custom_string') ?></h2>
+    <h2><?php _e('Custom String instead of price', 'dv-custom-string') ?></h2>
     <form method="post" action="options.php" id="dv-soon">
         <?php settings_fields('dv_soon_group'); ?>
         <?php do_settings_sections('dv-soon'); ?>
@@ -14,8 +14,8 @@
         }
         ?>
 
-        <h2><?php _e('Products', 'dv_custom_string') ?></h2>
-        <p><?php _e('Choose products to which you want to apply changes.', 'dv_custom_string') ?></p>
+        <h2><?php _e('Products', 'dv-custom-string') ?></h2>
+        <p><?php _e('Choose products to which you want to apply changes.', 'dv-custom-string') ?></p>
         <select id="product-search" name="product-search[]" multiple="multiple" style="width: 100%;">
             <?php
             foreach ($product_titles as $key => $title) {

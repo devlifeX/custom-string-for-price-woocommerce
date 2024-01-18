@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.6.6; wp-6.2\n"
-"X-Domain: dv-custom-string"
+"X-Domain: dv_custom_string"
 
 #. Description of the plugin
 msgid ""
