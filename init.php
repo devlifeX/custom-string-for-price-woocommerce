@@ -4,7 +4,7 @@
 Plugin Name: Custom String instead of price
 Plugin URI: https://github.com/devlifeX/custom-string-for-price-woocommerce
 Description: Allows you to show a String instead of price, Also support for variable products
-Version: 1.2.0
+Version: 1.2.1
 Author: Dariush vesal
 Author URI: https://vesal.blog
 Text Domain: dv-custom-string
@@ -18,7 +18,7 @@ require DV_SOON_DIR . "soon-class.php";
 require DV_SOON_DIR . "admin-class.php";
 
 add_action('plugins_loaded', function () {
-    load_plugin_textdomain('dv-custom-string', false, DV_SOON_DIR . 'languages/');
+    load_plugin_textdomain('dv-custom-string', false,  dirname(plugin_basename(__FILE__)) . '/languages/');
 });
 
 if (class_exists('DV_Soon')) {
